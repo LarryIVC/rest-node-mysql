@@ -5,7 +5,8 @@ import { pool } from './db.js'
 const app = express()
 
 app.get('/ping', async (req, res) => {
-  await pool.query('SELECT 1 + 1 as result')
+  const [result] = await pool.query('SELECT 1 + 1 as result')
+  res.json(result)
 })
 
 app.get('/employees', (req, res) => res.send('obtain all employees'))
