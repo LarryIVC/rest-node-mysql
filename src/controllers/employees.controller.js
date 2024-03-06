@@ -1,7 +1,19 @@
- export const getEmployees = (req, res) => res.send('obtain all employees')
+import { pool } from "../db.js"
 
- export const createEmployee = (req, res) => res.send('creating an employee')
+export const getEmployees = (req, res) => res.send('obtain all employees')
 
- export const updateEmployee = (req, res) => res.send('updating an employee')
+export const createEmployee = async (req, res) => {
 
- export const deleteEmployee = (req, res) => res.send('deleting an employee') 
+  const { name, salary } = req.body
+  const [rows] = await pool.query('INSERT INTO employee (name,salary) VALUES (?,?)', [name, salary])
+  res.send({
+    id: rows.insertId,
+    name,
+    salary,
+  })
+  // console.log(req.body)
+}
+
+export const updateEmployee = (req, res) => res.send('updating an employee')
+
+export const deleteEmployee = (req, res) => res.send('deleting an employee') 
