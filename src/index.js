@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 app.use(indexRoutes)
-app.use(employeesRoutes)
+app.use('/api/v1', employeesRoutes)
 
 app.listen(3000)
 
