@@ -1,4 +1,4 @@
-# to config properly
+# To config properly
 
 - Add a `.env` file in the root of the project with the following content:
 
@@ -12,5 +12,4 @@ DB_PORT='mysql_port'
 ```
 
 - replace whit your own data, and PORT is the port where the server will run.
-
 
