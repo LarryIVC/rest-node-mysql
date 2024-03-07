@@ -29,4 +29,11 @@ export const createEmployee = async (req, res) => {
 
 export const updateEmployee = (req, res) => res.send('updating an employee')
 
-export const deleteEmployee = (req, res) => res.send('deleting an employee') 
+export const deleteEmployee = async (req, res) => {
+  const { id } = req.params
+  const [result] = await pool.query('DELETE FROM employee WHERE id = ?', [id])
+
+  if (result.affectedRows <= 0) return res.status(404).json({ message: 'Employee not found' })
+
+  res.status(204).json({ message: 'Employee deleted' })
+}
