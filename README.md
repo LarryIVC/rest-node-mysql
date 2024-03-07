@@ -13,3 +13,10 @@ DB_PORT='mysql_port'
 
 - replace whit your own data, and PORT is the port where the server will run.
 
+- [live version](https://rest-node-mysql-production.up.railway.app/api/v1)
+
+- End Points:
+  - /api/v1/ping (GET)
+  - /api/v1/employees (GET, POST)
+  - /api/v1/employees/:id (GET, PATCH, DELETE)
+  
